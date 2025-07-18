@@ -5,10 +5,6 @@ node_modules/
 dist/
 build/
 
-# dotenv files
-.env
-.env.local
-.env.*.local
 
 # IDE/editor folders
 .vscode/
