@@ -13,11 +13,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 0 5px rgba(252, 1, 1, 0.87);
   position: fixed;
   top:0;
   z-index: 10;
-  background-color: #ffffff;
+  background-color: #ffffffe7;
 }
 
 header ul{
@@ -31,6 +31,8 @@ header ul{
 header ul li{
   list-style: none;
   cursor: pointer;
+  color: #000;
+  font-weight: 500;
 }
 
 li a{
@@ -51,6 +53,7 @@ li .login{
 
 header h2{
   margin-left: 1rem;
+  color: #000;
 }
 
 section{
