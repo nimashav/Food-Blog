@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData, useNavigate } from 'react-router-dom'
 import foodImg from '../assets/FoodRecipe.png'
 import { FaStopwatch } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
@@ -14,6 +14,8 @@ export default function RecipeItems() {
   const [allRecipes, setAllRecipes] = useState()
   let path = window.location.pathname === "/myRecipe" ? true : false
   let favItems = JSON.parse(localStorage.getItem("fav")) ?? []
+  const [isFavRecipe, setIsFavRecipe] = useState(false)
+  const navigate = useNavigate()
   console.log(allRecipes)
 
   useEffect(() => {
