@@ -3,15 +3,17 @@ import FoodRecipe from '../assets/FoodRecipe.png'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import RecipeItems from '../components/RecipeItems'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
   return (
     <>
       <section className='home'>
         <div className="left">
           <h1>YummiFi</h1>
           <h2>Welcome to YummiFi, where delicious meets simple! Whether you're a seasoned home cook or just getting started in the kitchen, we bring you easy-to-follow recipes made with love and real ingredients. From cozy comfort foods to global flavors, our collection is designed to inspire your next great meal. Get ready to cook, eat, and fall in love with food all over again.</h2>
-          <button>Share your recipe</button>
+          <button onClick={() => navigate("/addRecipe")}>Share your recipe</button>
         </div>
         <div className="right">
           <img src={FoodRecipe} width="800px" height="550px" />

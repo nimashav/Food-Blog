@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Modal from './Modal'
 import InputForm from './InputForm'
 import { NavLink } from 'react-router-dom'
+import yummifi from '../assets/YummiFi.png'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,7 +29,9 @@ export default function Navbar() {
   return (
     <>
       <header>
-        <h2>Food Blog</h2>
+        <div className='logo-container'>
+          <img src={yummifi} width="90px" />
+        </div>
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
           <li onClick={() => isLogin && setIsOpen(true)}><NavLink to={!isLogin ? "/myRecipe" : "/"}>My Recipe</NavLink></li>

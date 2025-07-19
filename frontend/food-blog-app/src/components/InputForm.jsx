@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import yummifi from '../assets/YummiFi.png'
 
 export default function InputForm({ setIsOpen }) {
   const [email, setEmail] = useState("")
@@ -21,19 +22,23 @@ export default function InputForm({ setIsOpen }) {
 
   return (
     <>
-      <form className='form' onSubmit={handleOnSubmit}>
-        <div className='form-control'>
-          <label>Email</label>
-          <input type="email" className='input' onChange={(e) => setEmail(e.target.value)} required></input>
-        </div>
-        <div className='form-control'>
-          <label>Password</label>
-          <input type="password" className='input' onChange={(e) => setPassword(e.target.value)} required></input>
-        </div>
-        <button type='submit'>{(isSignUp) ? "Sign Up" : "Login"}</button><br></br>
-        {(error != "") && <h6 className='error'>{error}</h6>}<br></br>
-        <p onClick={() => setIsSignUp(pre => !pre)}>{(isSignUp) ? "Already have an account" : "Create new account"}</p>
-      </form>
+      <div className="form-container">
+        <img src={yummifi} width="300px" />
+        <form className='form' onSubmit={handleOnSubmit}>
+          <div className='form-control'>
+            <label>Email</label>
+            <input type="email" className='input' onChange={(e) => setEmail(e.target.value)} required></input>
+          </div>
+          <div className='form-control'>
+            <label>Password</label>
+            <input type="password" className='input' onChange={(e) => setPassword(e.target.value)} required></input>
+          </div>
+          <button type='submit'>{(isSignUp) ? "Sign Up" : "Login"}</button><br></br>
+          {(error != "") && <h6 className='error'>{error}</h6>}<br></br>
+          <p onClick={() => setIsSignUp(pre => !pre)}>{(isSignUp) ? "Already have an account" : "Create new account"}</p>
+        </form>
+      </div>
     </>
+
   )
 }

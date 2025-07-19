@@ -3,22 +3,22 @@ const mongoose = require("mongoose")
 const recipeSchema = mongoose.Schema({
   title: {
     type: String,
-    required:true
+    required: true
   },
   ingredients: {
-    type: String,
-    required:true
+    type: Array,
+    required: true
   },
   instructions: {
     type: String,
-    required:true
+    required: true
   },
   time: {
     type: String,
   },
-   coverImage: {
+  coverImage: {
     type: String,
   }
-},{timestamps:true})
+}, { timestamps: true })
 
 module.exports = mongoose.model("Recipe", recipeSchema)
