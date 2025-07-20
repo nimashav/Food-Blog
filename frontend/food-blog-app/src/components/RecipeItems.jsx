@@ -44,22 +44,30 @@ export default function RecipeItems() {
           allRecipes?.map((item, index) => {
             return (
               <div key={index} className='card'>
-                <img src={`http://localhost:5000/images/${item.coverImage}`} width="270px" height="200px" />
-                <div className="card-body">
-                  <div className="title">
-                    {item.title}
+                <Link to={`/recipe/${item._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <img
+                    src={item.coverImage ? `http://localhost:5000/images/${item.coverImage}` : foodImg}
+                    width="270px"
+                    height="220px"
+                    alt={item.title}
+                  />
+                  <div className="card-body">
+                    <div className="title">
+                      {item.title}
+                    </div>
+                    <div className="icons">
+                      <div className='timer'><FaStopwatch />{item.time}</div>
+                      {(!path)
+                        ? <FaHeart onClick={() => favRecipe(item)}
+                          style={{ color: (favItems.some(res => res._id === item._id)) ? "red" : "" }} />
+                        : <div className='action'>
+                          <Link to={`/editRecipe/${item._id}`} className="editIcon"><FaEdit /></Link>
+                          <MdDelete onClick={() => onDelete(item._id)} className='deleteIcon' />
+                        </div>
+                      }
+                    </div>
                   </div>
-                  <div className="icons">
-                    <div className='timer'><FaStopwatch />{item.time}</div>
-                    {(!path) ? <FaHeart onClick={() => favRecipe(item)}
-                      style={{ color: (favItems.some(res => res._id === item._id)) ? "red" : "" }} /> :
-                      <div className='action'>
-                        <Link to={`/editRecipe/${item._id}`} className="editIcon"><FaEdit /></Link>
-                        <MdDelete onClick={() => onDelete(item._id)} className='deleteIcon' />
-                      </div>
-                    }
-                  </div>
-                </div>
+                </Link>
               </div>
             )
           })
