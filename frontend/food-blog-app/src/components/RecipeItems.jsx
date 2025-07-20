@@ -51,23 +51,23 @@ export default function RecipeItems() {
                     height="220px"
                     alt={item.title}
                   />
-                  <div className="card-body">
-                    <div className="title">
-                      {item.title}
-                    </div>
-                    <div className="icons">
-                      <div className='timer'><FaStopwatch />{item.time}</div>
-                      {(!path)
-                        ? <FaHeart onClick={() => favRecipe(item)}
-                          style={{ color: (favItems.some(res => res._id === item._id)) ? "red" : "" }} />
-                        : <div className='action'>
-                          <Link to={`/editRecipe/${item._id}`} className="editIcon"><FaEdit /></Link>
-                          <MdDelete onClick={() => onDelete(item._id)} className='deleteIcon' />
-                        </div>
-                      }
-                    </div>
-                  </div>
                 </Link>
+                <div className="card-body">
+                  <div className="title">
+                    {item.title}
+                  </div>
+                  <div className="icons">
+                    <div className='timer'><FaStopwatch />{item.time}</div>
+                    {(!path)
+                      ? <FaHeart onClick={() => favRecipe(item)}
+                        style={{ color: (favItems.some(res => res._id === item._id)) ? "red" : "" }} />
+                      : <div className='action'>
+                        <Link to={`/editRecipe/${item._id}`} className="editIcon"><FaEdit /></Link>
+                        <MdDelete onClick={() => onDelete(item._id)} className='deleteIcon' />
+                      </div>
+                    }
+                  </div>
+                </div>
               </div>
             )
           })
